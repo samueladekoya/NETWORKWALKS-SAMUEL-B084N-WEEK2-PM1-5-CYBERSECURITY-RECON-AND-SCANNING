@@ -61,7 +61,7 @@ I performed reconnaissance against the `networkwalks.com` domain using six Kali 
 
 #### Task 2: Web Technology Fingerprinting (`whatweb`)
 * **Command:** `whatweb networkwalks.com`
-* **Observation:** Identified the Apache web server, WordPress CMS (`7.0.4` / `7.1.4`), WP Download Manager plugin (`3.3.58` / `3.3.76`), Bootstrap, jQuery (`3.7.1`), contact email (`info@networkwalks.com`), and server IP address (`192.232.216.135`).
+* **Observation:** Identified the Apache web server, WordPress CMS (`7.1.4`), WP Download Manager plugin (`3.3.76`), Bootstrap, jQuery (`3.7.1`), contact email (`info@networkwalks.com`), and server IP address (`192.232.216.135`).
 * **Attacker Perspective:** Exposes exact software and plugin versions that can be cross-referenced against CVE databases for known vulnerabilities.
 
 ![WhatWeb Output](Screenshot%20(599).png)
@@ -69,9 +69,9 @@ I performed reconnaissance against the `networkwalks.com` domain using six Kali 
 ---
 
 #### Task 3: DNS IP Resolution (`nslookup`)
-* **Command:** `nslookup networkwalks.com`[cite: 6]
-* **Observation:** Resolved the domain name directly to its non-authoritative IPv4 address: `192.232.216.135`[cite: 6, 23].
-* **Attacker Perspective:** Allows direct scanning of the underlying server infrastructure and reverse-IP lookups for co-hosted sites[cite: 6].
+* **Command:** `nslookup networkwalks.com`
+* **Observation:** Resolved the domain name directly to its non-authoritative IPv4 address: `192.232.216.135`.
+* **Attacker Perspective:** Allows direct scanning of the underlying server infrastructure and reverse-IP lookups for co-hosted sites.
 
 ![Nslookup Output](Screenshot%20(595).png)
 
@@ -110,11 +110,11 @@ For the second activity, I used Zenmap on Windows to perform active network disc
 #### Tasks 1–6: Local Subnet Identification & Ping Scan
 * **Commands Used:** 
   * Windows CMD: `ipconfig` and `ipconfig /all` (to identify local IP, subnet mask, and local MAC address)
-  * Zenmap Ping Scan: `nmap -sn <local-subnet>/24` (e.g., `nmap -sn 10.0.0.0/24`)
+  * Zenmap Ping Scan: `nmap -sn 10.205.137.0/24`
 * **Observation:** Identified active live hosts on the local network segment along with their corresponding IPv4 addresses and MAC hardware addresses.
-  * **Live Hosts Count:** *(Insert your host count, e.g., 4 live hosts)*
-  * **Discovered IP Addresses:** *(Replace with your actual local subnet IPs, e.g., `10.0.0.1`, `10.0.0.4`, `10.0.0.5`, `10.0.0.19`)*
-  * **Discovered MAC Addresses:** *(Replace with your actual MAC addresses)*
+  * **Live Hosts Count:** *(5)*
+  * **Discovered IP Addresses:** *(`10.205.137.62`, `10.205.137.65`, `10.205.137.182`, `10.205.137.239`, `10.205.137.7`)*
+  * **Discovered MAC Addresses:** *(`8A:94:EB:CB:33:37`, `A2:AA:30:ED:87:51`,`CA:AA:8E:9F:2C:EB`, `A6:5B:45:59:4D:03`, `38-BA-F8-05-F3-25`)*
 
 ![Zenmap Ping Scan Output](Screenshot%20(589).png)
 
